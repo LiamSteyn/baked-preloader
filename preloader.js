@@ -19,10 +19,10 @@
         text-align: center;
     `;
 
-    // Create the GIF image element
+    // Create the SVG image element
     const gifImage = document.createElement('img');
     gifImage.id = 'gifImage';
-    gifImage.src = 'https://cdn.jsdelivr.net/gh/LiamSteyn/baked-preloader/loading.gif'; // Use your GIF URL
+    gifImage.src = 'https://cdn.jsdelivr.net/gh/LiamSteyn/baked-preloader@latest/loading.svg'; // Use your SVG URL
     gifImage.style.cssText = `
         width: 100px;
         height: auto;
