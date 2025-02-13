@@ -11,19 +11,19 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: black;
+        background-color: white;
         z-index: 9999;
         flex-direction: column;
-        color: white;
+        color: black;
         font-family: 'Orbitron', sans-serif;
         text-align: center;
     `;
 
     // Create the SVG image element
-    const gifImage = document.createElement('img');
-    gifImage.id = 'gifImage';
-    gifImage.src = 'https://cdn.jsdelivr.net/gh/LiamSteyn/baked-preloader@latest/loading.svg'; // Use your SVG URL
-    gifImage.style.cssText = `
+    const svgImage = document.createElement('img');
+    svgImage.id = 'svgImage';
+    svgImage.src = 'https://cdn.jsdelivr.net/gh/LiamSteyn/baked-preloader@latest/loading.svg'; // Use your SVG URL
+    svgImage.style.cssText = `
         width: 100px;
         height: auto;
         margin-bottom: 15px;
@@ -39,7 +39,7 @@
     `;
 
     // Append elements to the overlay
-    overlay.appendChild(gifImage);
+    overlay.appendChild(svgImage);
     overlay.appendChild(loadingText);
 
     // Append overlay to the body
