@@ -1,47 +1,60 @@
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-    let preloader = document.createElement("div");
-    preloader.id = "preloader";
-    preloader.innerHTML = `
-        <style>
-            @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
-
-            #preloader {
-                position: fixed;
-                width: 100%;
-                height: 100%;
-                background: white;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                z-index: 9999;
-                color: white;
-                font-family: 'Orbitron', sans-serif;
-                text-align: center;
-            }
-
-            #preloader img {
-                width: 100px; /* Adjust size as needed */
-                height: auto;
-                margin-bottom: 15px;
-            }
-
-            #preloader-text {
-                font-size: 14px;
-                opacity: 0.8;
-            }
-        </style>
-        <img src="https://cdn.jsdelivr.net/gh/LiamSteyn/baked-preloader/loading.gif" alt="Loading...">
-        <div id="preloader-text">Powered by LSC Software</div>
+    // Create the overlay (preloader container)
+    const overlay = document.createElement('div');
+    overlay.id = 'loader';
+    overlay.style.cssText = `
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        z-index: 9999;
+        flex-direction: column;
+        color: white;
+        font-family: 'Orbitron', sans-serif;
+        text-align: center;
     `;
 
-    document.body.appendChild(preloader);
+    // Create the GIF image element
+    const gifImage = document.createElement('img');
+    gifImage.id = 'gifImage';
+    gifImage.src = 'https://cdn.jsdelivr.net/gh/LiamSteyn/baked-preloader/loading.gif'; // Use your GIF URL
+    gifImage.style.cssText = `
+        width: 100px;
+        height: auto;
+        margin-bottom: 15px;
+    `;
 
-    window.addEventListener("load", function () {
-        setTimeout(() => {
-            preloader.style.display = "none";
-        }, 1000);
+    // Create the loading text
+    const loadingText = document.createElement('div');
+    loadingText.id = 'loadingText';
+    loadingText.innerText = 'Powered by LSC Software';
+    loadingText.style.cssText = `
+        font-size: 14px;
+        opacity: 0.8;
+    `;
+
+    // Append elements to the overlay
+    overlay.appendChild(gifImage);
+    overlay.appendChild(loadingText);
+
+    // Append overlay to the body
+    document.body.appendChild(overlay);
+
+    // Function to hide the overlay
+    function hideOverlay() {
+        overlay.style.display = 'none';
+    }
+
+    // Hide the overlay when DOMContentLoaded (simulating external script loading)
+    document.addEventListener('DOMContentLoaded', () => {
+        setTimeout(hideOverlay, 100); // Adjust time as needed
     });
-});
+
+    // Fallback: Hide overlay when all external resources are fully loaded
+    window.addEventListener('load', hideOverlay);
 </script>
