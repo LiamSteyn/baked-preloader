@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 position: fixed;
                 width: 100%;
                 height: 100%;
-                background: black;
+                background: white;
                 display: flex;
                 flex-direction: column;
                 align-items: center;
