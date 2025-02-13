@@ -1,41 +1,47 @@
+<script>
 document.addEventListener("DOMContentLoaded", function () {
-    // Create Preloader Element
     let preloader = document.createElement("div");
     preloader.id = "preloader";
     preloader.innerHTML = `
         <style>
+            @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
             #preloader {
                 position: fixed;
                 width: 100%;
                 height: 100%;
-                background: white;
+                background: black;
                 display: flex;
+                flex-direction: column;
                 align-items: center;
                 justify-content: center;
                 z-index: 9999;
+                color: white;
+                font-family: 'Orbitron', sans-serif;
+                text-align: center;
             }
-            .loader {
-                border: 5px solid #f3f3f3;
-                border-top: 5px solid #3498db;
-                border-radius: 50%;
-                width: 50px;
-                height: 50px;
-                animation: spin 1s linear infinite;
+
+            #preloader img {
+                width: 100px; /* Adjust size as needed */
+                height: auto;
+                margin-bottom: 15px;
             }
-            @keyframes spin {
-                0% { transform: rotate(0deg); }
-                100% { transform: rotate(360deg); }
+
+            #preloader-text {
+                font-size: 14px;
+                opacity: 0.8;
             }
         </style>
-        <div class="loader"></div>
+        <img src="https://cdn.jsdelivr.net/gh/LiamSteyn/baked-preloader/loading.gif" alt="Loading...">
+        <div id="preloader-text">Powered by LSC Software</div>
     `;
-    
+
     document.body.appendChild(preloader);
 
-    // Hide Preloader After FlutterFlow App Loads
     window.addEventListener("load", function () {
         setTimeout(() => {
             preloader.style.display = "none";
-        }, 1000); // Adjust delay if necessary
+        }, 1000);
     });
 });
+</script>
