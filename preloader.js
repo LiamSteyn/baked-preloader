@@ -11,12 +11,9 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: white;
+        background-color: white; /* Changed to white background */
         z-index: 9999;
         flex-direction: column;
-        color: black;
-        font-family: 'Orbitron', sans-serif;
-        text-align: center;
     `;
 
     // Create the SVG image element
@@ -26,23 +23,12 @@
     svgImage.style.cssText = `
         width: 100px;
         height: auto;
-        margin-bottom: 15px;
     `;
 
-    // Create the loading text
-    const loadingText = document.createElement('div');
-    loadingText.id = 'loadingText';
-    loadingText.innerText = 'Powered by LSC Software';
-    loadingText.style.cssText = `
-        font-size: 14px;
-        opacity: 0.8;
-    `;
-
-    // Append elements to the overlay
+    // Append the SVG image to the overlay
     overlay.appendChild(svgImage);
-    overlay.appendChild(loadingText);
 
-    // Append overlay to the body
+    // Append the overlay to the body
     document.body.appendChild(overlay);
 
     // Function to hide the overlay
